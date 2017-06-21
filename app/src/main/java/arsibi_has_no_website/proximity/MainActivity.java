@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
         manager=(SensorManager)getSystemService(Context.SENSOR_SERVICE);
         mProximitySensor=manager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
