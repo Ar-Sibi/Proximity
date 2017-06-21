@@ -30,6 +30,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             tv.setText(s);
         }
     };
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mp.stop();
+        mp.release();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +86,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 }
             }
             else {
-
                 if (t.isAlive()) {
                     t.interrupt();
                     Toast.makeText(getApplicationContext(), "Interrupted", Toast.LENGTH_LONG).show();
