@@ -33,10 +33,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     };
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        task=new MyTask();
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
         task.cancel(true);
-        task=new MyTask();
         mp.stop();
         mp.release();
     }
